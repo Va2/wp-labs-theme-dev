@@ -22,13 +22,47 @@ class LabsCustomizer
         // Attention il faut que la panel ait déjà été ajouter pour que la section puisse s'y greffer.
         // Attention une section ne s'affichera que si elle contient des controls.
         // https://developer.wordpress.org/reference/classes/wp_customize_manager/add_section/
+        $wp_customize->add_section('labs-home-carousel', [
+            'title' => __('Carousel: images'),
+            // 'description' => __('Changer l\'url de la vidéo (YouTube).')
+        ]);
+        $wp_customize->add_setting('home-intro-carousel-img-1', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_text_field'
+        ]);
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'carousel-img-1', // = $slug control
+                array(
+                    'label'      => __( 'Image 1', 'theme_name' ),
+                    'section'    => 'labs-home-carousel',
+                    'settings'   => 'home-intro-carousel-img-1'
+                )
+            )
+        );
+        $wp_customize->add_setting('home-intro-carousel-img-2', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_text_field'
+        ]);
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'carousel-img-2', // = $slug control
+                array(
+                    'label'      => __( 'Image 2', 'theme_name' ),
+                    'section'    => 'labs-home-carousel',
+                    'settings'   => 'home-intro-carousel-img-2'
+                )
+            )
+        );
+
         $wp_customize->add_section('labs-home-section-text', [
             'panel' => 'text-panel',
             'title' => __('Page d\'accueil (HOME)'),
             'description' => __('Changer les titres & textes de la page d\'accueil.')
         ]);
         $wp_customize->add_section('labs-home-video', [
-            // 'panel' => 'text-panel',
             'title' => __('Vidéo'),
             // 'description' => __('Changer l\'url de la vidéo (YouTube).')
         ]);
@@ -43,72 +77,72 @@ class LabsCustomizer
         // Attention le setting doit déjà être créer afin que le control puisse s'ajouter.
         // Attention un control ne s'affiche que s'il est lié à un setting.
         // https://developer.wordpress.org/reference/classes/wp_customize_manager/add_control/
-        $wp_customize->add_setting('home-card-title-left', [
-            'type' => 'theme_mod',
-            'sanitize_callback' => 'sanitize_text_field'
-        ]);
-         $wp_customize->add_control('home-card-title-left-control', [
-            'section' => 'labs-home-section-text',
-            'settings' => 'home-card-title-left',
-            'label' => __('Section CARD - titre gauche'),
-            'description' => __('Personnalisez le titre de la \'card\' gauche.'),
-            'type' => 'text'
-        ]);
-        $wp_customize->add_setting('home-card-text-left', [
-            'type' => 'theme_mod',
-            'sanitize_callback' => 'sanitize_textarea_field'
-        ]);
-        $wp_customize->add_control('home-card-text-left-control', [
-            'section' => 'labs-home-section-text',
-            'settings' => 'home-card-text-left',
-            'label' => __('Section CARD - text gauche'),
-            'description' => __('Personnalisez le texte de la \'card\' gauche.'),
-            'type' => 'textarea'
-        ]);
-        $wp_customize->add_setting('home-card-title-center', [
-            'type' => 'theme_mod',
-            'sanitize_callback' => 'sanitize_text_field'
-        ]);
-        $wp_customize->add_control('home-card-title-center-control', [
-            'section' => 'labs-home-section-text',
-            'settings' => 'home-card-title-center',
-            'label' => __('Section CARD - titre centre'),
-            'description' => __('Personnalisez le titre de la \'card\' centrale.'),
-            'type' => 'text'
-        ]);
-        $wp_customize->add_setting('home-card-text-center', [
-            'type' => 'theme_mod',
-            'sanitize_callback' => 'sanitize_textarea_field'
-        ]);
-        $wp_customize->add_control('home-card-text-center-control', [
-            'section' => 'labs-home-section-text',
-            'settings' => 'home-card-text-center',
-            'label' => __('Section CARD - text centre'),
-            'description' => __('Personnalisez le text de la \'card\' centrale.'),
-            'type' => 'textarea'
-        ]);
-        $wp_customize->add_setting('home-card-title-right', [
-            'type' => 'theme_mod',
-            'sanitize_callback' => 'sanitize_text_field'
-        ]);
-        $wp_customize->add_control('home-card-title-right-control', [
-            'section' => 'labs-home-section-text',
-            'settings' => 'home-card-title-right',
-            'label' => __('Section CARD - titre droite'),
-            'description' => __('Personnalisez le titre de la \'card\' droite.'),
-            'type' => 'text'
-        ]);
-        $wp_customize->add_setting('home-card-text-right', [
-            'type' => 'theme_mod',
-            'sanitize_callback' => 'sanitize_textarea_field'
-        ]);
-        $wp_customize->add_control('home-card-text-right-control', [
-            'section' => 'labs-home-section-text',
-            'settings' => 'home-card-text-right',
-            'label' => __('Section CARD - text droite'),
-            'description' => __('Personnalisez le text de la \'card\' droite.'),
-            'type' => 'textarea'
-        ]);
+        // $wp_customize->add_setting('home-card-title-left', [
+        //     'type' => 'theme_mod',
+        //     'sanitize_callback' => 'sanitize_text_field'
+        // ]);
+        //  $wp_customize->add_control('home-card-title-left-control', [
+        //     'section' => 'labs-home-section-text',
+        //     'settings' => 'home-card-title-left',
+        //     'label' => __('Section CARD - titre gauche'),
+        //     'description' => __('Personnalisez le titre de la \'card\' gauche.'),
+        //     'type' => 'text'
+        // ]);
+        // $wp_customize->add_setting('home-card-text-left', [
+        //     'type' => 'theme_mod',
+        //     'sanitize_callback' => 'sanitize_textarea_field'
+        // ]);
+        // $wp_customize->add_control('home-card-text-left-control', [
+        //     'section' => 'labs-home-section-text',
+        //     'settings' => 'home-card-text-left',
+        //     'label' => __('Section CARD - text gauche'),
+        //     'description' => __('Personnalisez le texte de la \'card\' gauche.'),
+        //     'type' => 'textarea'
+        // ]);
+        // $wp_customize->add_setting('home-card-title-center', [
+        //     'type' => 'theme_mod',
+        //     'sanitize_callback' => 'sanitize_text_field'
+        // ]);
+        // $wp_customize->add_control('home-card-title-center-control', [
+        //     'section' => 'labs-home-section-text',
+        //     'settings' => 'home-card-title-center',
+        //     'label' => __('Section CARD - titre centre'),
+        //     'description' => __('Personnalisez le titre de la \'card\' centrale.'),
+        //     'type' => 'text'
+        // ]);
+        // $wp_customize->add_setting('home-card-text-center', [
+        //     'type' => 'theme_mod',
+        //     'sanitize_callback' => 'sanitize_textarea_field'
+        // ]);
+        // $wp_customize->add_control('home-card-text-center-control', [
+        //     'section' => 'labs-home-section-text',
+        //     'settings' => 'home-card-text-center',
+        //     'label' => __('Section CARD - text centre'),
+        //     'description' => __('Personnalisez le text de la \'card\' centrale.'),
+        //     'type' => 'textarea'
+        // ]);
+        // $wp_customize->add_setting('home-card-title-right', [
+        //     'type' => 'theme_mod',
+        //     'sanitize_callback' => 'sanitize_text_field'
+        // ]);
+        // $wp_customize->add_control('home-card-title-right-control', [
+        //     'section' => 'labs-home-section-text',
+        //     'settings' => 'home-card-title-right',
+        //     'label' => __('Section CARD - titre droite'),
+        //     'description' => __('Personnalisez le titre de la \'card\' droite.'),
+        //     'type' => 'text'
+        // ]);
+        // $wp_customize->add_setting('home-card-text-right', [
+        //     'type' => 'theme_mod',
+        //     'sanitize_callback' => 'sanitize_textarea_field'
+        // ]);
+        // $wp_customize->add_control('home-card-text-right-control', [
+        //     'section' => 'labs-home-section-text',
+        //     'settings' => 'home-card-text-right',
+        //     'label' => __('Section CARD - text droite'),
+        //     'description' => __('Personnalisez le text de la \'card\' droite.'),
+        //     'type' => 'textarea'
+        // ]);
 
         $wp_customize->add_setting('home-about-title', [
             'type' => 'theme_mod',

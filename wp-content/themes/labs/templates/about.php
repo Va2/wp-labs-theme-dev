@@ -1,14 +1,14 @@
 <?php
 // https://developer.wordpress.org/reference/functions/get_theme_mod/
 // Attention dans ce template on utilise un raccourci pour <?php echo par <?= ceci n'est possible que si la config php.ini le permet short_open_tag. À ne faire que si vous avez le control de la config php.ini
-$card_title_left = get_theme_mod('home-card-title-left', __('Titre card gauche'));
-$card_text_left = get_theme_mod('home-card-text-left', __('Text card gauche'));
+// $card_title_left = get_theme_mod('home-card-title-left', __('Titre card gauche'));
+// $card_text_left = get_theme_mod('home-card-text-left', __('Text card gauche'));
 
-$card_title_center = get_theme_mod('home-card-title-center', __('Titre card centrale'));
-$card_text_center = get_theme_mod('home-card-text-center', __('Text card centrale'));
+// $card_title_center = get_theme_mod('home-card-title-center', __('Titre card centrale'));
+// $card_text_center = get_theme_mod('home-card-text-center', __('Text card centrale'));
 
-$card_title_right = get_theme_mod('home-card-title-right', __('Titre card droite'));
-$card_text_right = get_theme_mod('home-card-text-right', __('Text card droite'));
+// $card_title_right = get_theme_mod('home-card-title-right', __('Titre card droite'));
+// $card_text_right = get_theme_mod('home-card-text-right', __('Text card droite'));
 
 $about_title = get_theme_mod('home-about-title', __('Titre section about'));
 $about_title = str_replace("[", "<span>", $about_title);
@@ -41,8 +41,8 @@ $about_video_vignette = get_theme_mod('home-about-video');
                         <div class="icon">
                             <i class="flaticon-023-flask"></i>
                         </div>
-                        <h2><?= $card_title_left ?></h2>
-                        <p><?= $card_text_left ?></p>
+                        <h2>Get in the lab</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
                     </div>
                 </div>
 
@@ -52,8 +52,8 @@ $about_video_vignette = get_theme_mod('home-about-video');
                         <div class="icon">
                             <i class="flaticon-011-compass"></i>
                         </div>
-                        <h2><?= $card_title_center ?></h2>
-                        <p><?= $card_text_center ?></p>
+                        <h2>Projects online</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
                     </div>
                 </div>
 
@@ -63,8 +63,8 @@ $about_video_vignette = get_theme_mod('home-about-video');
                         <div class="icon">
                             <i class="flaticon-037-idea"></i>
                         </div>
-                        <h2><?= $card_title_right ?></h2>
-                        <p><?= $card_text_right ?></p>
+                        <h2>SMART MARKETING</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
                     </div>
                 </div>
             </div>
