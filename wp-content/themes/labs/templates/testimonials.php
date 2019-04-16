@@ -1,3 +1,7 @@
+<?php
+$testimonials_title = get_theme_mod('home-testimonials-title', __('Titre Testimonials'));
+?>
+
 <!-- Testimonial section -->
 <div class="testimonial-section pb100">
     <div class="test-overlay"></div>
@@ -5,7 +9,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-4">
                 <div class="section-title left">
-                    <h2>What our clients say</h2>
+                    <h2><?= $testimonials_title ?></h2>
                 </div>
                 <div class="owl-carousel" id="testimonial-slide">
 

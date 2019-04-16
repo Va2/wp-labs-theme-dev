@@ -1,8 +1,14 @@
+<?php
+$services_title = get_theme_mod('home-services-title', __('Titre Services'));
+$services_title = str_replace("[", "<span>", $services_title);
+$services_title = str_replace("]", "</span>", $services_title);
+?>
+
 <!-- Services section -->
 <div class="services-section spad">
     <div class="container">
         <div class="section-title dark">
-            <h2>Get in <span>the Lab</span> and see the services</h2>
+            <h2><?= $services_title ?></h2>
         </div>
         <div class="row">
 

@@ -1,12 +1,30 @@
 <?php
 // https://developer.wordpress.org/reference/functions/get_theme_mod/
 // Attention dans ce template on utilise un raccourci pour <?php echo par <?= ceci n'est possible que si la config php.ini le permet short_open_tag. À ne faire que si vous avez le control de la config php.ini
-$title_card_left = get_theme_mod('about-title-card-left', __('Titre about card gauche'));
-$text_card_left = get_theme_mod('about-text-card-left', __('Text about card gauche'));
-$title_card_center = get_theme_mod('about-title-card-center', __('Titre about card centrale'));
-$text_card_center = get_theme_mod('about-text-card-center', __('Text about card centrale'));
-$title_card_right = get_theme_mod('about-title-card-right', __('Titre about card droite'));
-$text_card_right = get_theme_mod('about-text-card-right', __('Text about card droite'));
+$card_title_left = get_theme_mod('home-card-title-left', __('Titre card gauche'));
+$card_text_left = get_theme_mod('home-card-text-left', __('Text card gauche'));
+
+$card_title_center = get_theme_mod('home-card-title-center', __('Titre card centrale'));
+$card_text_center = get_theme_mod('home-card-text-center', __('Text card centrale'));
+
+$card_title_right = get_theme_mod('home-card-title-right', __('Titre card droite'));
+$card_text_right = get_theme_mod('home-card-text-right', __('Text card droite'));
+
+$about_title = get_theme_mod('home-about-title', __('Titre section about'));
+$about_title = str_replace("[", "<span>", $about_title);
+$about_title = str_replace("]", "</span>", $about_title);
+
+$about_text_left = get_theme_mod('home-about-text-left', __('Text gauche section about'));
+$about_text_right = get_theme_mod('home-about-text-right', __('Text droit section about'));
+
+$about_btn_name = get_theme_mod('home-about-btn-name', __('Bouton About'));
+
+$about_video = get_theme_mod('home-about-video', __('Entrez l\'URL de la vidéo YouTube.'));
+$about_video_vignette = get_theme_mod('home-about-video');
+
+// $monTxt = get_theme_mod('about_id_text');
+// $monTxt = str_replace("[", "<span>", $monTxt);
+// $monTxt = str_replace("]", "</span>", $monTxt);
 ?>
 
 <!-- About section -->
@@ -23,8 +41,8 @@ $text_card_right = get_theme_mod('about-text-card-right', __('Text about card dr
                         <div class="icon">
                             <i class="flaticon-023-flask"></i>
                         </div>
-                        <h2><?= $title_card_left ?></h2>
-                        <p><?= $text_card_left ?></p>
+                        <h2><?= $card_title_left ?></h2>
+                        <p><?= $card_text_left ?></p>
                     </div>
                 </div>
 
@@ -34,8 +52,8 @@ $text_card_right = get_theme_mod('about-text-card-right', __('Text about card dr
                         <div class="icon">
                             <i class="flaticon-011-compass"></i>
                         </div>
-                        <h2><?= $title_card_center ?></h2>
-                        <p><?= $text_card_center ?></p>
+                        <h2><?= $card_title_center ?></h2>
+                        <p><?= $card_text_center ?></p>
                     </div>
                 </div>
 
@@ -45,8 +63,8 @@ $text_card_right = get_theme_mod('about-text-card-right', __('Text about card dr
                         <div class="icon">
                             <i class="flaticon-037-idea"></i>
                         </div>
-                        <h2><?= $title_card_right ?></h2>
-                        <p><?= $text_card_right ?></p>
+                        <h2><?= $card_title_right ?></h2>
+                        <p><?= $card_text_right ?></p>
                     </div>
                 </div>
             </div>
@@ -59,25 +77,25 @@ $text_card_right = get_theme_mod('about-text-card-right', __('Text about card dr
     <div class="about-contant">
         <div class="container">
             <div class="section-title">
-                <h2>Get in <span>the Lab</span> and discover the world</h2>
+                <h2><?= $about_title ?></h2>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac congue. Quisque porttitor porttitor tempus. Donec maximus ipsum non ornare vporttitor porttitorestibulum. Sed libero nibh, feugiat at enim id, bibendum sollicitudin arcu.</p>
+                    <p><?= $about_text_left ?></p>
                 </div>
                 <div class="col-md-6">
-                    <p>Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. Nunc nec maximus dui, vel suscipit dolor. Donec elementum velit a orci facilisis rutrum. Nam convallis vel erat id dictum. Sed ut risus in orci convallis viverra a eget nisi. Aenean pellentesque elit vitae eros dignissim ultrices. Quisque porttitor porttitorlaoreet vel risus et luctus.</p>
+                    <p><?= $about_text_right ?></p>
                 </div>
             </div>
             <div class="text-center mt60">
-                <a href="" class="site-btn">Browse</a>
+                <a href="" class="site-btn"><?= $about_btn_name ?></a>
             </div>
             <!-- popup video -->
             <div class="intro-video">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <img src="<?= get_template_directory_uri(); ?>/assets/img/video.jpg" alt="">
-                        <a href="https://www.youtube.com/watch?v=JgHfx2v9zOU" class="video-popup">
+                        <img src="<?= $about_video_vignette ?>" alt="">
+                        <a href="<?= $about_video ?>" class="video-popup">
                             <i class="fa fa-play"></i>
                         </a>
                     </div>
