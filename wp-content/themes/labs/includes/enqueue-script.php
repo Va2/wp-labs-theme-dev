@@ -1,12 +1,12 @@
 <?php
-class EnqueueScript
+class EnqueueScripts
 {
     /**
      * Fonction qui va ajouter des scripts (CSS & JS) dynamiquement afin que l'on puisse les inclures dans le thème avec wp_head() & wp_footer()
      *
      * @return void
      */
-    function add_css_js_scripts()
+    public static function add_css_js_scripts()
     {
         // Ajout des scripts css
         // https://developer.wordpress.org/reference/functions/wp_enqueue_style/
@@ -29,6 +29,6 @@ class EnqueueScript
     }
 }
 
-$enqueue_script = new EnqueueScript();
+// $enqueue_scripts = new EnqueueScripts();
 
-add_action('wp_enqueue_scripts', [$enqueue_script, 'add_css_js_scripts']); // https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
+add_action('wp_enqueue_scripts', [EnqueueScripts::class, 'add_css_js_scripts']); // https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
