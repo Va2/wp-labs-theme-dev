@@ -62,86 +62,9 @@ class LabsCustomizer
             'description' => __('Changer les titres & textes de la page d\'accueil.')
         ]);
         $wp_customize->add_section('labs-home-video', [
-            'title' => __('Vidéo'),
-            // 'description' => __('Changer l\'url de la vidéo (YouTube).')
+            'title' => __('Vidéo')
         ]);
         
-
-        // Ajout d'un setting qui contiendra des informations dans la base de donnée sous la clé correspondant à son id (premier paramètre)
-        // La clé est utilisé pour récuperer les valeurs dans le thème grâce à la fonction get_theme_mod()
-        // Attention la ligne précédente n'est valable que si le 'type' du setting est défini à 'theme_mod'
-        // https://developer.wordpress.org/reference/classes/wp_customize_manager/add_setting/
-
-        // Ajout d'un control (un label avec input et autre information). Le control doit être attaché à une section ainsi qu'à un setting.
-        // Attention le setting doit déjà être créer afin que le control puisse s'ajouter.
-        // Attention un control ne s'affiche que s'il est lié à un setting.
-        // https://developer.wordpress.org/reference/classes/wp_customize_manager/add_control/
-        // $wp_customize->add_setting('home-card-title-left', [
-        //     'type' => 'theme_mod',
-        //     'sanitize_callback' => 'sanitize_text_field'
-        // ]);
-        //  $wp_customize->add_control('home-card-title-left-control', [
-        //     'section' => 'labs-home-section-text',
-        //     'settings' => 'home-card-title-left',
-        //     'label' => __('Section CARD - titre gauche'),
-        //     'description' => __('Personnalisez le titre de la \'card\' gauche.'),
-        //     'type' => 'text'
-        // ]);
-        // $wp_customize->add_setting('home-card-text-left', [
-        //     'type' => 'theme_mod',
-        //     'sanitize_callback' => 'sanitize_textarea_field'
-        // ]);
-        // $wp_customize->add_control('home-card-text-left-control', [
-        //     'section' => 'labs-home-section-text',
-        //     'settings' => 'home-card-text-left',
-        //     'label' => __('Section CARD - text gauche'),
-        //     'description' => __('Personnalisez le texte de la \'card\' gauche.'),
-        //     'type' => 'textarea'
-        // ]);
-        // $wp_customize->add_setting('home-card-title-center', [
-        //     'type' => 'theme_mod',
-        //     'sanitize_callback' => 'sanitize_text_field'
-        // ]);
-        // $wp_customize->add_control('home-card-title-center-control', [
-        //     'section' => 'labs-home-section-text',
-        //     'settings' => 'home-card-title-center',
-        //     'label' => __('Section CARD - titre centre'),
-        //     'description' => __('Personnalisez le titre de la \'card\' centrale.'),
-        //     'type' => 'text'
-        // ]);
-        // $wp_customize->add_setting('home-card-text-center', [
-        //     'type' => 'theme_mod',
-        //     'sanitize_callback' => 'sanitize_textarea_field'
-        // ]);
-        // $wp_customize->add_control('home-card-text-center-control', [
-        //     'section' => 'labs-home-section-text',
-        //     'settings' => 'home-card-text-center',
-        //     'label' => __('Section CARD - text centre'),
-        //     'description' => __('Personnalisez le text de la \'card\' centrale.'),
-        //     'type' => 'textarea'
-        // ]);
-        // $wp_customize->add_setting('home-card-title-right', [
-        //     'type' => 'theme_mod',
-        //     'sanitize_callback' => 'sanitize_text_field'
-        // ]);
-        // $wp_customize->add_control('home-card-title-right-control', [
-        //     'section' => 'labs-home-section-text',
-        //     'settings' => 'home-card-title-right',
-        //     'label' => __('Section CARD - titre droite'),
-        //     'description' => __('Personnalisez le titre de la \'card\' droite.'),
-        //     'type' => 'text'
-        // ]);
-        // $wp_customize->add_setting('home-card-text-right', [
-        //     'type' => 'theme_mod',
-        //     'sanitize_callback' => 'sanitize_textarea_field'
-        // ]);
-        // $wp_customize->add_control('home-card-text-right-control', [
-        //     'section' => 'labs-home-section-text',
-        //     'settings' => 'home-card-text-right',
-        //     'label' => __('Section CARD - text droite'),
-        //     'description' => __('Personnalisez le text de la \'card\' droite.'),
-        //     'type' => 'textarea'
-        // ]);
 
         $wp_customize->add_setting('home-about-title', [
             'type' => 'theme_mod',
@@ -187,16 +110,20 @@ class LabsCustomizer
             'description' => __('Personnalisez le texte du bouton de la section about.'),
             'type' => 'text'
         ]);
-        $wp_customize->add_setting('home-about-video', [
+        $wp_customize->add_setting('home-about-video-url', [
             'type' => 'theme_mod',
             'sanitize_callback' => 'sanitize_text_field'
         ]);
-        $wp_customize->add_control('home-about-video-control', [
+        $wp_customize->add_control('video-url-control', [
             'section' => 'labs-home-video',
-            'settings' => 'home-about-video',
+            'settings' => 'home-about-video-url',
             'label' => __('Changer la vidéo'),
             'description' => __('Changer l\'url de la vidéo (YouTube).'),
             'type' => 'text'
+        ]);
+        $wp_customize->add_setting('home-about-video-vignette', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_text_field'
         ]);
         $wp_customize->add_control(
             new WP_Customize_Image_Control(
@@ -205,7 +132,7 @@ class LabsCustomizer
                 array(
                     'label'      => __( 'Changer la vignette', 'theme_name' ),
                     'section'    => 'labs-home-video',
-                    'settings'   => 'home-about-video'
+                    'settings'   => 'home-about-video-vignette'
                 )
             )
         );

@@ -33,7 +33,6 @@ $services_title = str_replace("]", "</span>", $services_title);
                         <div class="service-text">
                             <h2><?php the_title(); ?></h2>
                             <p><?php the_content(); ?></p>
-                            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p> -->
                         </div>
                     </div>
                 </div>
