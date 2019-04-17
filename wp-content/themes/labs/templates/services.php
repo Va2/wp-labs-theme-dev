@@ -31,15 +31,14 @@ $services_title = str_replace("]", "</span>", $services_title);
                             <i class="<?= get_post_meta(get_the_ID(), 'service_icon', true) ?>"></i>
                         </div>
                         <div class="service-text">
-                            <h2><?= the_title(); ?></h2>
-                            <p><?= the_content(); ?></p>
+                            <h2><?php the_title(); ?></h2>
+                            <p><?php the_content(); ?></p>
                             <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p> -->
                         </div>
                     </div>
                 </div>
 
             <?php endwhile; ?>
-            <?php wp_reset_postdata(); ?>
         </div>
         <div class="text-center">
             <a href="" class="site-btn">Browse</a>
