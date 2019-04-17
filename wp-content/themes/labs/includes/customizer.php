@@ -24,7 +24,6 @@ class LabsCustomizer
         // https://developer.wordpress.org/reference/classes/wp_customize_manager/add_section/
         $wp_customize->add_section('labs-home-carousel', [
             'title' => __('Carousel: images'),
-            // 'description' => __('Changer l\'url de la vidéo (YouTube).')
         ]);
         $wp_customize->add_setting('home-intro-carousel-img-1', [
             'type' => 'theme_mod',
@@ -33,7 +32,7 @@ class LabsCustomizer
         $wp_customize->add_control(
             new WP_Customize_Image_Control(
                 $wp_customize,
-                'carousel-img-1', // = $slug control
+                'carousel-img-1-control', // = $slug control
                 array(
                     'label'      => __( 'Image 1', 'theme_name' ),
                     'section'    => 'labs-home-carousel',
@@ -48,7 +47,7 @@ class LabsCustomizer
         $wp_customize->add_control(
             new WP_Customize_Image_Control(
                 $wp_customize,
-                'carousel-img-2', // = $slug control
+                'carousel-img-2-control', // = $slug control
                 array(
                     'label'      => __( 'Image 2', 'theme_name' ),
                     'section'    => 'labs-home-carousel',
@@ -202,7 +201,7 @@ class LabsCustomizer
         $wp_customize->add_control(
             new WP_Customize_Image_Control(
                 $wp_customize,
-                'video_vignette', // = $slug control
+                'video-vignette-control', // = $slug control
                 array(
                     'label'      => __( 'Changer la vignette', 'theme_name' ),
                     'section'    => 'labs-home-video',
