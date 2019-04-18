@@ -29,7 +29,7 @@ $contact_address_email = get_theme_mod('home-contact-address-email', __('hello@c
 
             <!-- contact form -->
             <div class="col-md-6 col-pull">
-                <form class="form-class" id="con_form">
+                <form action="<?= get_admin_url() . '/?action=send-mail'; ?>" method="post" class="form-class" id="con_form">
                     <div class="row">
                         <div class="col-sm-6">
                             <input type="text" name="name" placeholder="Your name">

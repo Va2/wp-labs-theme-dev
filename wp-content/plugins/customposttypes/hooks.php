@@ -11,6 +11,9 @@ use App\Features\MetaBoxes\TestimonialDetailsMetabox;
 use App\Features\PostTypes\TeamPostType;
 use App\Features\MetaBoxes\TeamDetailsMetabox;
 
+// SEND MAIL
+use App\Features\Pages\SendMail;
+
 
 // SERVICE
 add_action('init',[ServicePostType::class, 'register_service']);
@@ -28,3 +31,6 @@ add_action('save_post_' . TestimonialPostType::$slug, [TestimonialDetailsMetabox
 add_action('init',[TeamPostType::class, 'register_team']);
 add_action('add_meta_boxes_team', [TeamDetailsMetabox::class, 'add_meta_box']);
 add_action('save_post_' . TeamPostType::$slug, [TeamDetailsMetabox::class, 'save']);
+
+// SEND MAIL
+add_action('admin_action_send-mail', [SendMail::class, 'send_mail']);
