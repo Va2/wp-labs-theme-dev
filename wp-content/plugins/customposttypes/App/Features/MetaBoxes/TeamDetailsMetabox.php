@@ -1,11 +1,11 @@
 <?php
 namespace App\Features\MetaBoxes;
 
-use App\Features\PostTypes\TestimonialPostType;
+use App\Features\PostTypes\TeamPostType;
 
-class TestimonialDetailsMetabox
+class TeamDetailsMetabox
 {
-    public static $slug = 'testimonial_details_metabox';
+    public static $slug = 'team_details_metabox';
 
     /**
      * Ajout d'une méta box au type de contenu qui sont passer dans le tableau $screens
@@ -15,14 +15,14 @@ class TestimonialDetailsMetabox
      */
     public static function add_meta_box()
     {
-        $screen = [TestimonialPostType::$slug];
+        $screen = [TeamPostType::$slug];
 
         add_meta_box(
             self::$slug,                        // Unique ID
             __("Fonction dans l'entreprise"),   // Box title
             [self::class, 'render'],            // Content callback, must be of type callable
-            $screen,                             // Post type
-            'side'
+            $screen,                            // Post type
+            // 'side'
         );
     }
 
@@ -44,7 +44,7 @@ class TestimonialDetailsMetabox
         // La function compact() créer un tableau ou elle met en clef le nom de la variable qu'on lui passe, on lui passe cette variable d'une manière assez particulière car on lui retire le '$' et qu'en plus on la met entre guillemet. En lui passant de cette manière elle créer donc un tableau avec comme clef et valeur le même nom ce qui donne en soit : ['icon' => $icon] ca veux dire également qu'on doit aller changer dans recipe-detail.html.php le nom de la clef a la quelle on fait appel.
         
         // view('metaboxes/service-icons',['selected_icon' => $icon_class]);
-        view('metaboxes/client-job-position', compact('position'));
+        view('metaboxes/team-job-position', compact('position'));
     }
 
     /**

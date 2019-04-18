@@ -1,6 +1,5 @@
 <?php
 namespace App\Features\PostTypes;
-// add_theme_support('post-thumbnails'); // Check placement
 
 class TestimonialPostType
 {
@@ -43,7 +42,6 @@ class TestimonialPostType
                 'supports' =>  [
                     'title',
                     'editor',
-                    // 'thumbnail'
                 ],
             ],
             add_filter('enter_title_here', function ($title) {

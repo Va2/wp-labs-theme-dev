@@ -7,6 +7,10 @@ use App\Features\MetaBoxes\ServiceIconsMetabox;
 use App\Features\PostTypes\TestimonialPostType;
 use App\Features\MetaBoxes\TestimonialDetailsMetabox;
 
+// TEAM
+use App\Features\PostTypes\TeamPostType;
+use App\Features\MetaBoxes\TeamDetailsMetabox;
+
 
 // SERVICE
 add_action('init',[ServicePostType::class, 'register_service']);
@@ -18,4 +22,9 @@ add_action('save_post_' . ServicePostType::$slug, [ServiceIconsMetabox::class, '
 // TESTIMONIAL
 add_action('init',[TestimonialPostType::class, 'register_testimonial']);
 add_action('add_meta_boxes_testimonial', [TestimonialDetailsMetabox::class, 'add_meta_box']);
-add_action('save_post_' . TestimonialPostType::$slug, [TestimonialDetailsMetabox::class, 'save']); 
+add_action('save_post_' . TestimonialPostType::$slug, [TestimonialDetailsMetabox::class, 'save']);
+
+// TEAM
+add_action('init',[TeamPostType::class, 'register_team']);
+add_action('add_meta_boxes_team', [TeamDetailsMetabox::class, 'add_meta_box']);
+add_action('save_post_' . TeamPostType::$slug, [TeamDetailsMetabox::class, 'save']);
