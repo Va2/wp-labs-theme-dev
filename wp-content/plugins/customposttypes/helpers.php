@@ -11,7 +11,7 @@ function view($path, $data = [])
     extract($data); // https://www.php.net/manual/fr/function.extract.php
 
     // Ce helper, me permet de faire un include plus rapidement je récupère juste le chemin du fichier à partir du dossier views sans l'extention dans le fichier ServiceIconsMetabox.php ligne 31 que j'envoi en paramètre,ce chemin est envoyé dans la variable $path, puis je complète le chemin avec ma variable global et l'extention.
-    include(LABS_SERV_VIEW_DIR . $path . '.html.php');
+    include(LABS_VIEW_DIR . $path . '.html.php');
 }
 
 /**
@@ -47,7 +47,7 @@ function update_post_metas($post_id, $data){
         // l'id du post qu'il faut sauvegarder ou mettre à jours
         // la clef (letiquette) qu'on donne a la row (tirroir) dans la BDD
         // la valeur qu'on stock dans cette row
-        update_post_meta($post_id,$key,$value);
+        update_post_meta($post_id, $key, $value);
     }
 }
 

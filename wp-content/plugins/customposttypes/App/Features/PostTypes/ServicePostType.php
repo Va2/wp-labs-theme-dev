@@ -1,6 +1,5 @@
 <?php
 namespace App\Features\PostTypes;
-add_theme_support( 'post-thumbnails' ); // Check placement
 
 class ServicePostType
 {
@@ -39,11 +38,10 @@ class ServicePostType
                 'rewrite' => [
                     'slug' => 'service'
                 ],
-                'menu_icon' => 'dashicons-admin-page',
+                'menu_icon' => 'dashicons-excerpt-view',
                 'supports' =>  [
                     'title',
-                    'editor',
-                    'thumbnail'
+                    'editor'
                 ],
             ]
         );

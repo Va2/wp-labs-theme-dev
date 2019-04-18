@@ -1,15 +1,15 @@
 <?php
 /**
- * Plugin Name:     Labs Service
- * Plugin URI:      PLUGIN SITE HERE
- * Description:     Manage services
+ * Plugin Name:     Custom Post Types
+ * Plugin URI:      https://github.com/Va2/wp-labs-theme-dev
+ * Description:     Create and manage custom post types.
  * Author:          Vadim Brieven
  * Author URI:      https://github.com/Va2
- * Text Domain:     Services Post Type
+ * Text Domain:     Custom Post Type
  * Domain Path:     
  * Version:         0.1.0
  *
- * @package         Labs Service
+ * @package         Custom Post Types
  */
 
 // Your code starts here.
