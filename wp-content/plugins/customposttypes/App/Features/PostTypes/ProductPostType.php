@@ -40,6 +40,7 @@ class ProductPostType
                 'rewrite' => [
                     'slug' => 'produit'
                 ],
+                'taxonomies' => ['post_tag'],
                 'menu_icon' => 'dashicons-welcome-add-page',
                 'supports' =>  [
                     'title',

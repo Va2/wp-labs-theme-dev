@@ -9,6 +9,18 @@ class TeamPostType
     public static $slug = 'team';
 
     public static function register_team() {
+        register_taxonomy(
+            'custom-tag',       //taxonomy 
+            'my-custom-post',   //post-type
+            [ 
+                'hierarchical'  => false, 
+                'label'         => __( 'Tag: "staff" ou "boss"','taxonomy general name'), 
+                'singular_name' => __( 'Tag', 'taxonomy general name' ), 
+                'rewrite'       => true, 
+                'query_var'     => true
+            ]
+        );
+        
         register_post_type(
             self::$slug,
             [
@@ -42,7 +54,8 @@ class TeamPostType
                 ],
                 // On active la possibilité d'assigner une catégorie à notre Recette grâce à la taxonomie 'category', rajoutez là puis allez voir,une fois fait essayez de rajouter un second arguement dans le tableau 'post_tag' et voyez ce que cela fait.
                 // https://developer.wordpress.org/resource/dashicons/#admin-tools
-                'taxonomies' => ['post_tag'],
+                // 'taxonomies' => ['post_tag'],
+                'taxonomies' => ['custom-tag'],
                 'menu_icon' => 'dashicons-admin-users',
                 'supports' =>  [
                     'title',
@@ -54,7 +67,7 @@ class TeamPostType
                 $screen = get_current_screen();
 
                 if ('team' == $screen->post_type) {
-                    $title = "Entrer le prénom & nom de l'employé";
+                    $title = "Entrez le prénom & le nom de l'employé";
                 }
                 return $title;
             })
