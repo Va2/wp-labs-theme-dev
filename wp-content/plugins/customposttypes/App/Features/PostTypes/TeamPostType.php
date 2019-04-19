@@ -1,5 +1,6 @@
 <?php
 namespace App\Features\PostTypes;
+
 add_theme_support('post-thumbnails'); // Check placement
 
 class TeamPostType

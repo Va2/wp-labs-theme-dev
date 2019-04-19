@@ -20,7 +20,7 @@
                 ];
                 $query = new WP_Query($args);
                 while ($query->have_posts()) : $query->the_post();
-                $ids[]= $post->ID;
+                //$ids[]= $post->ID;
                 ?>
 
                     <div class="icon-box light left">

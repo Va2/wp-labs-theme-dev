@@ -1,6 +1,8 @@
 <?php
 namespace App\Features\PostTypes;
 
+add_theme_support('post-thumbnails'); // Check placement
+
 class ProductPostType
 {
     // On créer une variable qu'on appel 'slug' on la rend public et static pour pouvoir s'en servir dans les functions de la class RecipePostType et en dehors.
@@ -41,7 +43,8 @@ class ProductPostType
                 'menu_icon' => 'dashicons-welcome-add-page',
                 'supports' =>  [
                     'title',
-                    'editor'
+                    'editor',
+                    'thumbnail'
                 ],
             ]
         );
