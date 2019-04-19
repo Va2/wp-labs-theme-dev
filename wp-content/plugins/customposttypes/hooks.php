@@ -11,6 +11,10 @@ use App\Features\MetaBoxes\TestimonialDetailsMetabox;
 use App\Features\PostTypes\TeamPostType;
 use App\Features\MetaBoxes\TeamDetailsMetabox;
 
+// PRODUCTS
+use App\Features\PostTypes\ProductPostType;
+use App\Features\MetaBoxes\ProductIconsMetabox;
+
 // SEND MAIL
 use App\Features\Pages\SendMail;
 
@@ -31,6 +35,11 @@ add_action('save_post_' . TestimonialPostType::$slug, [TestimonialDetailsMetabox
 add_action('init',[TeamPostType::class, 'register_team']);
 add_action('add_meta_boxes_team', [TeamDetailsMetabox::class, 'add_meta_box']);
 add_action('save_post_' . TeamPostType::$slug, [TeamDetailsMetabox::class, 'save']);
+
+// PRODUCT
+add_action('init',[ProductPostType::class, 'register_product']);
+add_action('add_meta_boxes_product', [ProductIconsMetabox::class, 'add_meta_box']);
+add_action('save_post_' . ProductPostType::$slug, [ProductIconsMetabox::class, 'save']);
 
 // SEND MAIL
 add_action('admin_action_send-mail', [SendMail::class, 'send_mail']);

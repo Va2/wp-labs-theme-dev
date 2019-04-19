@@ -10,7 +10,7 @@ get_header();
 
 get_template_part('templates/services/header');
 get_template_part('templates/services/services');
-get_template_part('templates/services/features');
+get_template_part('templates/services/products');
 get_template_part('templates/services/cards');
 
 get_template_part('templates/newsletter');
