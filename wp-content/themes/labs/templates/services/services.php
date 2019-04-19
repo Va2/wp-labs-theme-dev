@@ -5,124 +5,33 @@
             <h2>Get in <span>the Lab</span> and see the services</h2>
         </div>
         <div class="row">
+            <?php
+            // Nous allons faire en sorte d'aller chercher tout les articles pour les affichers sur la page
+            // Pour cela nous allons utiliser la class WP_Query 
+            // https://developer.wordpress.org/reference/classes/wp_query/
+            $args = [
+                'post_type' => 'service',
+                'posts_per_page' => -1,
+                'order' => 'ASC'
+            ];
+            $query = new WP_Query($args);
+            while ($query->have_posts()) : $query->the_post();
+            ?>
 
-            <!-- single service -->
-            <div class="col-md-4 col-sm-6">
-                <div class="service">
-                    <div class="icon">
-                        <i class="flaticon-023-flask"></i>
-                    </div>
-                    <div class="service-text">
-                        <h2>Get in the lab</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+                <!-- single service -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="service">
+                        <div class="icon">
+                            <i class="<?= get_post_meta(get_the_ID(), 'service_icon', true) ?>"></i>
+                        </div>
+                        <div class="service-text">
+                            <h2><?php the_title(); ?></h2>
+                            <p><?php the_content(); ?></p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- single service -->
-            <div class="col-md-4 col-sm-6">
-                <div class="service">
-                    <div class="icon">
-                        <i class="flaticon-011-compass"></i>
-                    </div>
-                    <div class="service-text">
-                        <h2>Projects online</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- single service -->
-            <div class="col-md-4 col-sm-6">
-                <div class="service">
-                    <div class="icon">
-                        <i class="flaticon-037-idea"></i>
-                    </div>
-                    <div class="service-text">
-                        <h2>SMART MARKETING</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- single service -->
-            <div class="col-md-4 col-sm-6">
-                <div class="service">
-                    <div class="icon">
-                        <i class="flaticon-039-vector"></i>
-                    </div>
-                    <div class="service-text">
-                        <h2>Social Media</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- single service -->
-            <div class="col-md-4 col-sm-6">
-                <div class="service">
-                    <div class="icon">
-                        <i class="flaticon-036-brainstorming"></i>
-                    </div>
-                    <div class="service-text">
-                        <h2>Brainstorming</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- single service -->
-            <div class="col-md-4 col-sm-6">
-                <div class="service">
-                    <div class="icon">
-                        <i class="flaticon-026-search"></i>
-                    </div>
-                    <div class="service-text">
-                        <h2>Documented</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- single service -->
-            <div class="col-md-4 col-sm-6">
-                <div class="service">
-                    <div class="icon">
-                        <i class="flaticon-018-laptop-1"></i>
-                    </div>
-                    <div class="service-text">
-                        <h2>Responsive</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- single service -->
-            <div class="col-md-4 col-sm-6">
-                <div class="service">
-                    <div class="icon">
-                        <i class="flaticon-043-sketch"></i>
-                    </div>
-                    <div class="service-text">
-                        <h2>Retina ready</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- single service -->
-            <div class="col-md-4 col-sm-6">
-                <div class="service">
-                    <div class="icon">
-                        <i class="flaticon-012-cube"></i>
-                    </div>
-                    <div class="service-text">
-                        <h2>Ultra modern</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                    </div>
-                </div>
-            </div>
-
+            <?php endwhile; ?>
         </div>
         <div class="text-center">
             <a href="" class="site-btn">Browse</a>
