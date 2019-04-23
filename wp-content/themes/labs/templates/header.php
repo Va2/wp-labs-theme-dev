@@ -3,10 +3,10 @@
     <div class="overlay"></div>
     <div class="container text-right">
         <div class="page-info">
-            <h2>Services</h2>
+            <h2><?= $slug = ucfirst(basename(get_permalink())); ?></h2>
             <div class="page-links">
                 <a href="#">Home</a>
-                <span>Services</span>
+                <span><?= $slug = ucfirst(basename(get_permalink())); ?></span>
             </div>
         </div>
     </div>
