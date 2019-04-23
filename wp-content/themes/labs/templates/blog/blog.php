@@ -64,7 +64,7 @@
                             $args = [
                                 'title_li' => ''
                             ];
-                            wp_list_categories($args); //  CSS PROBLEM ON PAGE
+                            wp_list_categories($args);
                             ?>
                         </li>
                     </ul>
