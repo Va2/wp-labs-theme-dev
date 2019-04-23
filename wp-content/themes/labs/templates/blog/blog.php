@@ -32,7 +32,7 @@
                                 <a href=""><?php comments_number(); ?></a>
                             </div>
                             <p><?php the_excerpt(); ?></p>
-                            <a href="blog-post.html" class="read-more">Read More</a>
+                            <a href="<?php the_permalink() ?>" class="read-more">Read More</a>
                         </div>
                     </div>
                 <?php endwhile; ?>
