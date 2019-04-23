@@ -25,6 +25,8 @@ class EnqueueScripts
         wp_enqueue_script('magnific-popup', get_template_directory_uri() . '/assets/js/magnific-popup.min.js', ['jquery-labs'], null, true);
         wp_enqueue_script('owl-carousel', get_template_directory_uri() . '/assets/js/owl.carousel.min.js', ['bootstrap'], null, true);
         wp_enqueue_script('circle-progress', get_template_directory_uri() . '/assets/js/circle-progress.min.js', ['jquery-labs'], null, true);
+        wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo', ['jquery-labs'], null, true);
+        wp_enqueue_script('map', get_template_directory_uri() . '/assets/js/map.js', ['jquery-labs'], null, true);
         wp_enqueue_script('labs-theme', get_template_directory_uri() . '/assets/js/main.js', ['jquery-labs'], null, true);
     }
 }
