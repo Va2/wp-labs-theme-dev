@@ -1,11 +1,4 @@
 <?php
-/*
-Template Name: Services page
-Template Post Type: post, page
-*/
-
-// Page code here...
-
 get_header();
 
 get_template_part('templates/header');

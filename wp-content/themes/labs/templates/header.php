@@ -3,10 +3,10 @@
     <div class="overlay"></div>
     <div class="container text-right">
         <div class="page-info">
-            <h2><?= $slug = ucfirst(basename(get_permalink())); ?></h2>
+            <h2><?= $slug = ucfirst(wp_title('')); ?></h2>
             <div class="page-links">
                 <a href="#">Home</a>
-                <span><?= $slug = ucfirst(basename(get_permalink())); ?></span>
+                <span><?= $slug = ucfirst(wp_title('')); ?></span>
             </div>
         </div>
     </div>
