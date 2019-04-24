@@ -2,7 +2,6 @@
 <div class="row">
     <div class="col-md-9 comment-from">
         <h2>Leave a comment</h2>
-        <?php // comment_form(); ?>
         <form action="<?= get_home_url(); ?>/wp-comments-post.php" method="POST" id="comment-form" class="form-class">
             <div class="row">
                 <div class="col-sm-6">
