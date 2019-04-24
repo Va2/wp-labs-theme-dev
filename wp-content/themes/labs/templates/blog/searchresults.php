@@ -3,13 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-sm-7 blog-posts">
-                <?php
-                // while ($query->have_posts()) : $query->the_post();
-                ?>
                 <?php while ( have_posts() ) : the_post(); ?>
-                <?php // if ( have_posts() ) : ?>
-                <?php // while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-
                     <!-- Post item -->
                     <div class="post-item">
                         <div class="post-thumbnail">
