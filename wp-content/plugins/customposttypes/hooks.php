@@ -18,6 +18,9 @@ use App\Features\MetaBoxes\ProductIconsMetabox;
 // SEND MAIL
 use App\Features\Pages\SendMail;
 
+// APP SETUP
+use App\Setup;
+
 
 // SERVICE
 add_action('init',[ServicePostType::class, 'register_service']);
@@ -43,6 +46,9 @@ add_action('save_post_' . ProductPostType::$slug, [ProductIconsMetabox::class, '
 
 // SEND MAIL
 add_action('admin_action_send-mail', [SendMail::class, 'send_mail']);
+
+// APP SETUP
+add_action('init', [Setup::class, 'start_session']);
 
 
 
