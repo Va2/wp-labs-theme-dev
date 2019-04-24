@@ -28,7 +28,18 @@
                             <h2 class="post-title"><?php the_title(); ?></h2>
                             <div class="post-meta">
                                 <a href=""><?php the_author(); ?></a>
-                                <?php the_category(' '); //  CSS PROBLEM ON PAGE ?> 
+                                <a>
+                                    <?php                                    
+                                    $categories = get_categories(); // get_the_tags()
+                                    $categoriesArr = [];
+                                    if ($categories) :
+                                        foreach($categories as $category) :
+                                            $categoriesArr[] = ucfirst($category->name);
+                                        endforeach;
+                                        echo implode(", ",$categoriesArr);
+                                    endif;
+                                    ?>
+                                </a>
                                 <a href=""><?php comments_number(); ?></a>
                             </div>
                             <p><?php the_excerpt(); ?></p>
