@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Request;
+use App\Http\Models\Mail;
 
 class MailController
 {
@@ -41,6 +42,17 @@ class MailController
                 'status' => 'success',
                 'message' => 'Votre e-mail a bien été envoyé.'
             ];
+
+            // Refactoring pour apprendre et utiliser les models. Seul les models peuvent intéragir avec la base de donnée.
+            // on instancie la class Mail et on rempli les valeurs dans les propriétés.
+            $mail = new Mail();
+            $mail->userid = get_current_user_id();
+            $mail->name = $name;
+            $mail->subject = $subject;
+            $mail->email = $email;
+            $mail->message = $message;
+            // Sauvegarde du mail dans la base de donnée
+            $mail->save();
         } else {
             $_SESSION['notice-mail'] = [
                 'status' => 'danger',
@@ -80,6 +92,13 @@ class MailController
                 'status' => 'success',
                 'message' => 'Votre inscription à la Newsletter est approuvée.'
             ];
+
+            // Refactoring pour apprendre et utiliser les models. Seul les models peuvent intéragir avec la base de donnée.
+            // on instancie la class Mail et on rempli les valeurs dans les propriétés.
+            $newsletter = new Newsletter();
+            $newsletter->email = $email;
+            // Sauvegarde du mail dans la base de donnée
+            $newsletter->save();
         } else {
             $_SESSION['notice-newsletter'] = [
                 'status' => 'danger',

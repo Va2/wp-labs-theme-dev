@@ -24,6 +24,9 @@ use App\Features\Pages\SendNewsletter;
 // APP SETUP
 use App\Setup;
 
+// DATABASE
+use App\Database\Database;
+
 
 // SERVICE
 add_action('init',[ServicePostType::class, 'register_service']);
@@ -54,6 +57,12 @@ add_action('admin_action_send-newsletter', [MailController::class, 'send_newslet
 
 // APP SETUP
 add_action('init', [Setup::class, 'start_session']);
+
+// DATABASE
+// On ajoute la méthode qui va s'executer lors de l'activation du plugin
+// Cette fonction ne s'active que lors de l'activation du plugin https://developer.wordpress.org/reference/functions/register_activation_hook/
+
+register_activation_hook(__DIR__ . '/customposttypes.php', [Database::class, 'init']);
 
 
 
