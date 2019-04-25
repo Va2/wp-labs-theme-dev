@@ -17,6 +17,9 @@ use App\Features\MetaBoxes\ProductIconsMetabox;
 
 // SEND MAIL
 use App\Features\Pages\SendMail;
+// SEND NEWSLETTER
+use App\Features\Pages\SendNewsletter;
+
 
 // APP SETUP
 use App\Setup;
@@ -46,6 +49,8 @@ add_action('save_post_' . ProductPostType::$slug, [ProductIconsMetabox::class, '
 
 // SEND MAIL
 add_action('admin_action_send-mail', [SendMail::class, 'send_mail']);
+// SEND NEWSLETTER
+add_action('admin_action_send-newsletter', [SendNewsletter::class, 'send_newsletter']);
 
 // APP SETUP
 add_action('init', [Setup::class, 'start_session']);
