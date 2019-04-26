@@ -20,6 +20,11 @@ class LabsCustomizer
             'title' => __('Page d\'accueil (HOME)'),
             'description' => __('Changer les titres & textes de la page d\'accueil.')
         ]);
+        $wp_customize->add_section('labs-services-section-text', [
+            'panel' => 'text-panel',
+            'title' => __('Page Services'),
+            'description' => __('Changer les titres & textes de la page services.')
+        ]);
 
         // Carousel
         $wp_customize->add_section('labs-home-carousel', [
@@ -103,7 +108,7 @@ class LabsCustomizer
             'type' => 'text'
         ]);
 
-        // Titles & Text
+        // Titles & Text - HOME
         $wp_customize->add_setting('home-about-title', [
             'type' => 'theme_mod',
             'sanitize_callback' => 'sanitize_text_field'
@@ -316,6 +321,30 @@ class LabsCustomizer
             'settings' => 'home-contact-address-email',
             'label' => __('Contact: E-mail'),
             'description' => __('Changer l\'adresse e-mail.'),
+            'type' => 'text'
+        ]);
+
+        // Titles & Text - SERVICES
+        $wp_customize->add_setting('services-services-title', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_text_field'
+        ]);
+        $wp_customize->add_control('services-service-title-control', [
+            'section' => 'labs-services-section-text',
+            'settings' => 'services-services-title',
+            'label' => __('Section SERVICES - titre'),
+            'description' => __('Personnalisez le titre de la section services.'),
+            'type' => 'text'
+        ]);
+        $wp_customize->add_setting('services-products-title', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_text_field'
+        ]);
+        $wp_customize->add_control('services-product-title-control', [
+            'section' => 'labs-services-section-text',
+            'settings' => 'services-products-title',
+            'label' => __('Section PRODUITS - titre'),
+            'description' => __('Personnalisez le titre de la section produits.'),
             'type' => 'text'
         ]);
     }

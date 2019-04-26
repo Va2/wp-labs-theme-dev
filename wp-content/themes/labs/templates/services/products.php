@@ -1,9 +1,15 @@
+<?php
+$products_title = get_theme_mod('services-products-title', __('Titre Promotion'));
+$products_title = str_replace("[", "<span>", $products_title);
+$products_title = str_replace("]", "</span>", $products_title);
+?>
+
 <!-- products section -->
 <div id="products" class="team-section spad">
     <div class="overlay"></div>
     <div class="container">
         <div class="section-title">
-            <h2>Get in <span>the Lab</span> and discover the world</h2>
+            <h2><?= $products_title ?></h2>
         </div>
         <div class="row">
 
