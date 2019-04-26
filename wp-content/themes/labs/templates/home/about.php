@@ -67,7 +67,7 @@ $about_video_vignette = get_theme_mod('home-about-video-vignette');
                 </div>
             </div>
             <div class="text-center mt60">
-                <a href="http://localhost:8080/index.php/blog/" class="site-btn"><?= $about_btn_name ?></a>
+                <a href="/?page_id=<?= get_page_by_title('blog')->ID ?>" class="site-btn"><?= $about_btn_name ?></a>
             </div>
             <!-- popup video -->
             <div class="intro-video">

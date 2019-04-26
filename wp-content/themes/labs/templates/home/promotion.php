@@ -14,7 +14,7 @@ $promotion_btn = get_theme_mod('home-promotion-btn', __('Nom bouton Promotion'))
             </div>
             <div class="col-md-3">
                 <div class="promo-btn-area">
-                    <a href="" class="site-btn btn-2"><?= $promotion_btn ?></a>
+                    <a href="/?page_id=<?= get_page_by_title('contact')->ID ?>" class="site-btn btn-2"><?= $promotion_btn ?></a>
                 </div>
             </div>
         </div>

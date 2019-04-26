@@ -1,5 +1,5 @@
 <!-- products section -->
-<div class="team-section spad">
+<div id="products" class="team-section spad">
     <div class="overlay"></div>
     <div class="container">
         <div class="section-title">
@@ -75,7 +75,7 @@
 
         </div>
         <div class="text-center mt100">
-            <a href="" class="site-btn">Browse</a>
+            <a href="/?page_id=<?= get_page_by_title('contact')->ID ?>" class="site-btn">Contact</a>
         </div>
     </div>
 </div>

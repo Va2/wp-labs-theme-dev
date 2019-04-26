@@ -40,7 +40,7 @@ $services_title = str_replace("]", "</span>", $services_title);
             <?php endwhile; ?>
         </div>
         <div class="text-center">
-            <a href="" class="site-btn">Browse</a>
+            <a href="/?page_id=<?= get_page_by_title('services')->ID ?>" class="site-btn">Services</a>
         </div>
     </div>
 </div>

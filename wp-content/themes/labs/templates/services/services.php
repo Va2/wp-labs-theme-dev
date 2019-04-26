@@ -34,7 +34,7 @@
             <?php endwhile; ?>
         </div>
         <div class="text-center">
-            <a href="" class="site-btn">Browse</a>
+            <a href="/?page_id=<?= get_page_by_title('services')->ID ?>/#products" class="site-btn">Products</a>
         </div>
     </div>
 </div>
