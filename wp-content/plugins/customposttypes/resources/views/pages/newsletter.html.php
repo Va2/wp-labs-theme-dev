@@ -1,16 +1,15 @@
 <?php foreach ($newsletter as $email) : ?>
-    <!-- <div class="alert alert-secondary" role="alert">
-        <strong>Email : </strong><?= $email->email; ?>
-        <a href="<?php menu_page_url('newsletter-client'); ?>&action=show&id=<?= $email->id; ?>" class="btn btn-primaty">voir</a>
-    </div> -->
-    <div class="container">
+    <div class="container mt-1">
         <ul class="list-group">
             <li class="list-group-item">
                 <strong>Email : </strong><?= $email->email; ?>
-                <button href="<?php menu_page_url('newsletter-client'); ?>&action=show&id=<?= $email->id; ?>" type="button" class="btn btn-outline-danger btn-sm">Supprimer</button>
-
+                <!-- On rajout ici un formulaire qui ne contient qu'un bouton ainsi qu'un input mais caché (hidden) on le cache car ce n'est pas nécessaire de le voir par contre on va avoir besoin de ce qu'il contient -->
+                <form action="<?php echo get_admin_url() . '/?action=newsletter-delete'; ?>" method="post" class="float-right">
+                <!-- On met un input hidden avec comme valeur l'id du mail en question on fait ça pour en suit récupérer l'id via $_POST['et le NAME qui est ici "id" '] on récupérera ca valeur dans les prochain commit pour l'instant on à uniquement un petit formulaire qui contient l'id du mail et qui nous met une action=delete dans notre url -->
+                    <input type="hidden" name="id" value="<?= $email->id; ?>">
+                    <button type='submit' class="btn btn-outline-danger btn-sm">Supprimer</button>
+                </form>
             </li>
-
         </ul>
     </div>
 <?php endforeach; ?>

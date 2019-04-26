@@ -110,4 +110,14 @@ class MailController
         // la fonction wp_safe_redirect redirige vers une url. La fonction wp_get_referer renvoi vers la page d'ou la requête a été envoyé.
         wp_safe_redirect(wp_get_referer());
     }
+
+    // Function qui va nous permettre de supprimer un mail dans la base de donnée, cette function attend un paramètre '$id' que l'on va remplir par la suite quand on va appelé cette function
+    public static function delete($id)
+    {
+        $id = $_POST['id'];
+
+        Newsletter::delete($id);
+
+        wp_safe_redirect(wp_get_referer());
+    }
 }

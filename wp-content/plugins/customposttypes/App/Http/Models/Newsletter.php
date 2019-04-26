@@ -47,12 +47,17 @@ class Newsletter
         return $wpdb->get_results($query);
     }
 
-    // On créer une seconde function 'find()' pour faire une requête différente de 'all()' ,find elle ira récupérer dans la base de donnée que les mails dont l'id vaut ce qui est passé dans l'url.
-    public static function find($id)
+    // Function qui va nous permettre de supprimer un mail dans la base de donné,cette function attend un paramètre '$id' que l'on va remplir par la suite quand on va appelé cette function
+    public static function delete($id)
     {
         global $wpdb;
-        $table = self::$table;
-        $query = "SELECT * FROM $table WHERE id = $id";
-        return $wpdb->get_row($query);
+        // delete est une methode de notre class wpdb
+        // https://developer.wordpress.org/reference/classes/wpdb/delete/
+        return $wpdb->delete(
+            self::$table,
+            [
+                'id' => $id
+            ]
+        );
     }
 }

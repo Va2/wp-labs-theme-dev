@@ -4,6 +4,7 @@ namespace App\Features\Pages;
 // On use la class Request pour pouvoir nous en servir plus bas.
 // use App\Http\Requests\Request;
 use App\Http\Models\Newsletter;
+use App\Http\Controllers\MailController;
 
 class SendNewsletter
 {
