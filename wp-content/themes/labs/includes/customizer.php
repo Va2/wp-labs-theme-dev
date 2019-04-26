@@ -10,18 +10,18 @@ class LabsCustomizer
      */
     public static function add_text_customizer($wp_customize)
     {
-        // Ajout d'un panel avec des options
-        // Attention, un panel ne s'affichera que s'il contient des sections
-        //https://developer.wordpress.org/reference/classes/wp_customize_manager/add_panel/
+        // Titles & Text
         $wp_customize->add_panel('text-panel', [
             'title' => __('Titres & textes'),
             'Description' => __('Changer les titres & textes du site.')
         ]);
+        $wp_customize->add_section('labs-home-section-text', [
+            'panel' => 'text-panel',
+            'title' => __('Page d\'accueil (HOME)'),
+            'description' => __('Changer les titres & textes de la page d\'accueil.')
+        ]);
 
-        // Ajout d'une section à un panel définie, si pas de panel défini, alors la section sera visible directement
-        // Attention il faut que la panel ait déjà été ajouter pour que la section puisse s'y greffer.
-        // Attention une section ne s'affichera que si elle contient des controls.
-        // https://developer.wordpress.org/reference/classes/wp_customize_manager/add_section/
+        // Carousel
         $wp_customize->add_section('labs-home-carousel', [
             'title' => __('Carousel: images'),
         ]);
@@ -56,16 +56,54 @@ class LabsCustomizer
             )
         );
 
-        $wp_customize->add_section('labs-home-section-text', [
-            'panel' => 'text-panel',
-            'title' => __('Page d\'accueil (HOME)'),
-            'description' => __('Changer les titres & textes de la page d\'accueil.')
-        ]);
+        // Video
         $wp_customize->add_section('labs-home-video', [
             'title' => __('Vidéo')
         ]);
-        
+        $wp_customize->add_setting('home-about-video-url', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_text_field'
+        ]);
+        $wp_customize->add_control('video-url-control', [
+            'section' => 'labs-home-video',
+            'settings' => 'home-about-video-url',
+            'label' => __('Changer la vidéo'),
+            'description' => __('Changer l\'url de la vidéo (YouTube).'),
+            'type' => 'text'
+        ]);
+        $wp_customize->add_setting('home-about-video-vignette', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_text_field'
+        ]);
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'video-vignette-control', // = $slug control
+                array(
+                    'label'      => __( 'Changer la vignette', 'theme_name' ),
+                    'section'    => 'labs-home-video',
+                    'settings'   => 'home-about-video-vignette'
+                )
+            )
+        );
 
+        // Google Maps
+        $wp_customize->add_section('labs-gmaps', [
+            'title' => __('Google Maps')
+        ]);
+        $wp_customize->add_setting('gmaps-address', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_text_field'
+        ]);
+        $wp_customize->add_control('gmaps-address-control', [
+            'section' => 'labs-gmaps',
+            'settings' => 'gmaps-address',
+            'label' => __('Changer ladresse de Google Maps.'),
+            'description' => __('Changer l\'adresse de Google Maps.'),
+            'type' => 'text'
+        ]);
+
+        // Titles & Text
         $wp_customize->add_setting('home-about-title', [
             'type' => 'theme_mod',
             'sanitize_callback' => 'sanitize_text_field'
@@ -110,32 +148,6 @@ class LabsCustomizer
             'description' => __('Personnalisez le texte du bouton de la section about.'),
             'type' => 'text'
         ]);
-        $wp_customize->add_setting('home-about-video-url', [
-            'type' => 'theme_mod',
-            'sanitize_callback' => 'sanitize_text_field'
-        ]);
-        $wp_customize->add_control('video-url-control', [
-            'section' => 'labs-home-video',
-            'settings' => 'home-about-video-url',
-            'label' => __('Changer la vidéo'),
-            'description' => __('Changer l\'url de la vidéo (YouTube).'),
-            'type' => 'text'
-        ]);
-        $wp_customize->add_setting('home-about-video-vignette', [
-            'type' => 'theme_mod',
-            'sanitize_callback' => 'sanitize_text_field'
-        ]);
-        $wp_customize->add_control(
-            new WP_Customize_Image_Control(
-                $wp_customize,
-                'video-vignette-control', // = $slug control
-                array(
-                    'label'      => __( 'Changer la vignette', 'theme_name' ),
-                    'section'    => 'labs-home-video',
-                    'settings'   => 'home-about-video-vignette'
-                )
-            )
-        );
 
         $wp_customize->add_setting('home-testimonials-title', [
             'type' => 'theme_mod',
