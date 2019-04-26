@@ -19,24 +19,9 @@ function view($path, $data = [])
 // {
 //     ob_start();
 //     extract($data);
-//     include(RAT_VIEW_DIR . $path . '.php');
-//     return ob_get_clean();
-// }
-
-// /**
-//  * fonction pour rendre une vue
-//  *
-//  * @param string $path chemin du fichier à partir du dossier views sans l'extention .html.php
-//  * @return void
-//  */
-// // Rajout d'un second paramètre qui par défaut vaut un tableau vide.
-// function partial($path, $data = [])
-// {
-//     extract($data); // https://www.php.net/manual/fr/function.extract.php
-
-//     // Ce helper, me permet de faire un include plus rapidement je récupère juste le chemin du fichier à partir du dossier views sans l'extention dans le fichier ServiceIconsMetabox.php ligne 31 que j'envoi en paramètre,ce chemin est envoyé dans la variable $path, puis je complète le chemin avec ma variable global et l'extention.
 //     include(LABS_VIEW_DIR . $path . '.php');
-// }
+//     return ob_get_clean();
+// })
 
 /**
  * Extrait la valeur dans un tableau si la valeur existe dans ce tableau

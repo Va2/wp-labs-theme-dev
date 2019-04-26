@@ -42,6 +42,8 @@ class Mail
                 'mmessage' => $this->message,
                 'created_at' => $this->created_at
             ]
+            // // Nous appelons une fonction php pure qui transforme toutes les propriétés de notre objet en tableau pour simplifier l'écriture
+            // get_object_vars($this)
         );
     }
 }
