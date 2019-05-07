@@ -23,6 +23,8 @@ use App\Features\Pages\SendNewsletter;
 
 // APP SETUP
 use App\Setup;
+use App\Capabilities;
+
 
 // DATABASE
 use App\Database\Database;
@@ -63,6 +65,10 @@ add_action('init', [Setup::class, 'start_session']);
 // On ajoute la méthode qui va s'executer lors de l'activation du plugin
 // Cette fonction ne s'active que lors de l'activation du plugin https://developer.wordpress.org/reference/functions/register_activation_hook/
 register_activation_hook(__DIR__ . '/customposttypes.php', [Database::class, 'init']);
+
+// CAPABILITIES
+register_activation_hook(__DIR__ . '/customposttypes.php', [Capabilities::class, 'labs_admin_capability']);
+
 add_action('admin_enqueue_scripts', [Setup::class, 'enqueue_scripts']);
 
 // Hook personnalisé, c'est la combinaison du hook 'admin_action_' de wordpress avec mail-delete qui est l'action qu'on envoi dans l'url ligne 27 du fichier show-mail-html.php 

@@ -40,6 +40,16 @@ class ProductPostType
                 'rewrite' => [
                     'slug' => 'produit'
                 ],
+                'capabilities' => array(
+                    'edit_post'          => 'edit_product', 
+                    'read_post'          => 'read_product', 
+                    'delete_post'        => 'delete_product', 
+                    'edit_posts'         => 'edit_products', 
+                    'edit_others_posts'  => 'edit_others_products', 
+                    'publish_posts'      => 'publish_products',       
+                    'read_private_posts' => 'read_private_products', 
+                    'create_posts'       => 'edit_products'
+                ),
                 'taxonomies' => ['post_tag'],
                 'menu_icon' => 'dashicons-welcome-add-page',
                 'supports' =>  [

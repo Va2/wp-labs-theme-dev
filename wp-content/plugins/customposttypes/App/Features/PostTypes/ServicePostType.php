@@ -38,6 +38,16 @@ class ServicePostType
                 'rewrite' => [
                     'slug' => 'service'
                 ],
+                'capabilities' => array(
+                    'edit_post'          => 'edit_service', 
+                    'read_post'          => 'read_service', 
+                    'delete_post'        => 'delete_service', 
+                    'edit_posts'         => 'edit_services', 
+                    'edit_others_posts'  => 'edit_others_services', 
+                    'publish_posts'      => 'publish_services',       
+                    'read_private_posts' => 'read_private_services', 
+                    'create_posts'       => 'edit_services'
+                ),
                 'menu_icon' => 'dashicons-excerpt-view',
                 'supports' =>  [
                     'title',

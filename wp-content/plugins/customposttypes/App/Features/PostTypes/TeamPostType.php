@@ -37,6 +37,16 @@ add_theme_support('post-thumbnails'); // Check placement
                 'rewrite' => [
                     'slug' => 'team'
                 ],
+                'capabilities' => array(
+                    'edit_post'          => 'edit_team', 
+                    'read_post'          => 'read_team', 
+                    'delete_post'        => 'delete_team', 
+                    'edit_posts'         => 'edit_teams', 
+                    'edit_others_posts'  => 'edit_others_teams', 
+                    'publish_posts'      => 'publish_teams',       
+                    'read_private_posts' => 'read_private_teams', 
+                    'create_posts'       => 'edit_teams'
+                ),
                 // On active la possibilité d'assigner une catégorie à notre Recette grâce à la taxonomie 'category', rajoutez là puis allez voir,une fois fait essayez de rajouter un second arguement dans le tableau 'post_tag' et voyez ce que cela fait.
                 // https://developer.wordpress.org/resource/dashicons/#admin-tools
                 'taxonomies' => ['post_tag'],
@@ -45,7 +55,7 @@ add_theme_support('post-thumbnails'); // Check placement
                     'title',
                     // 'editor',
                     'thumbnail'
-                ],
+                ]
             ],
             add_filter('enter_title_here', function ($title) {
                 $screen = get_current_screen();

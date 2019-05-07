@@ -38,6 +38,16 @@ class TestimonialPostType
                 'rewrite' => [
                     'slug' => 'testimonial'
                 ],
+                'capabilities' => array(
+                    'edit_post'          => 'edit_testimonial', 
+                    'read_post'          => 'read_testimonial', 
+                    'delete_post'        => 'delete_testimonial', 
+                    'edit_posts'         => 'edit_testimonials', 
+                    'edit_others_posts'  => 'edit_others_testimonials', 
+                    'publish_posts'      => 'publish_testimonials',       
+                    'read_private_posts' => 'read_private_testimonials', 
+                    'create_posts'       => 'edit_testimonials'
+                ),
                 'menu_icon' => 'dashicons-format-quote',
                 'supports' =>  [
                     'title',
