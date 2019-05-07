@@ -1,26 +1,11 @@
 <?php
 namespace App\Features\PostTypes;
-
 add_theme_support('post-thumbnails'); // Check placement
-
-class TeamPostType
+ class TeamPostType
 {
     // On créer une variable qu'on appel 'slug' on la rend public et static pour pouvoir s'en servir dans les functions de la class RecipePostType et en dehors.
     public static $slug = 'team';
-
-    public static function register_team() {
-        register_taxonomy(
-            'custom-team-tag',  //taxonomy 
-            self::$slug,        //post-type
-            [ 
-                'hierarchical'  => false, 
-                'label'         => __( 'Tag: "staff" ou "boss"','taxonomy general name'), 
-                'singular_name' => __( 'Tag', 'taxonomy general name' ), 
-                'rewrite'       => true, 
-                'query_var'     => true
-            ]
-        );
-        
+     public static function register_team() {
         register_post_type(
             self::$slug,
             [
@@ -54,8 +39,7 @@ class TeamPostType
                 ],
                 // On active la possibilité d'assigner une catégorie à notre Recette grâce à la taxonomie 'category', rajoutez là puis allez voir,une fois fait essayez de rajouter un second arguement dans le tableau 'post_tag' et voyez ce que cela fait.
                 // https://developer.wordpress.org/resource/dashicons/#admin-tools
-                // 'taxonomies' => ['post_tag'],
-                'taxonomies' => ['custom-team-tag'],
+                'taxonomies' => ['post_tag'],
                 'menu_icon' => 'dashicons-admin-users',
                 'supports' =>  [
                     'title',
@@ -65,9 +49,8 @@ class TeamPostType
             ],
             add_filter('enter_title_here', function ($title) {
                 $screen = get_current_screen();
-
-                if ('team' == $screen->post_type) {
-                    $title = "Entrez le prénom & le nom de l'employé";
+                 if ('team' == $screen->post_type) {
+                    $title = "Entrer le prénom & nom de l'employé";
                 }
                 return $title;
             })

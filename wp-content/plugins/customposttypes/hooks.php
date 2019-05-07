@@ -67,35 +67,3 @@ add_action('admin_enqueue_scripts', [Setup::class, 'enqueue_scripts']);
 
 // Hook personnalisé, c'est la combinaison du hook 'admin_action_' de wordpress avec mail-delete qui est l'action qu'on envoi dans l'url ligne 27 du fichier show-mail-html.php 
 add_action('admin_action_newsletter-delete', [MailController::class, 'delete']);
-
-
-
-// TEAM TAXONOMIES ($wp_taxonomies) : Test but conflict with ARTICLE POST TYPES
-// add_action( 'init', 'taxonomies_team_post_tags');
-// function taxonomies_team_post_tags()
-// {
-//     global $wp_taxonomies;
-
-//     // The list of labels we can modify comes from
-//     //  http://codex.wordpress.org/Function_Reference/register_taxonomy
-//     //  http://core.trac.wordpress.org/browser/branches/3.0/wp-includes/taxonomy.php#L350
-//     $wp_taxonomies['post_tag']->labels = (object)array(
-//         'name' => 'TAG: "staff" ou "boss"',
-//         'menu_name' => 'Fonction job Tags',
-//         'singular_name' => 'Fonction job Tags',
-//         'search_items' => 'Search Fonction job Tags',
-//         'popular_items' => 'Popular Fonction job Tags',
-//         'all_items' => 'All Fonction job Tags',
-//         'parent_item' => null, // Tags aren't hierarchical
-//         'parent_item_colon' => null,
-//         'edit_item' => 'Edit Fonction job Tags',
-//         'update_item' => 'Update Fonction job Tags',
-//         'add_new_item' => 'Add new Fonction job Tags',
-//         'new_item_name' => 'New Fonction job Tags Name',
-//         'separate_items_with_commas' => 'Separata Fonction job Tags with commas',
-//         'add_or_remove_items' => 'Add or remove Fonction job Tags',
-//         'choose_from_most_used' => 'Choose from the most used Fonction job Tags',
-//     );
-
-//     $wp_taxonomies['post_tag']->label = '"staff" ou "boss"';
-// }
