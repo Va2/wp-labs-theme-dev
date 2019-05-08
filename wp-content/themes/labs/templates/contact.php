@@ -32,9 +32,10 @@ $contact_address_email = get_theme_mod('home-contact-address-email', __('hello@c
                 <!-- Ici nous ajoutons une partie d'html qui prendra en charge les notifications. On met cela dans un fichier à part afin de pouvoir réutiliser les notifications ailleurs -->
                 <?php include plugin_dir_path(__FILE__) . "../partials/notice-mail.php" ?>
 
-                <form action="<?= get_admin_url() . '/?action=send-mail'; ?>" method="POST" class="form-class" id="con_form">
+                <form action="<?= admin_url('admin-post.php')?>" method="POST" class="form-class" id="con_form">
                     <!-- Cette fonction créer des inputs cachés qui contiennent des informations qui vont nous permetre de savoir si le formulaire est authentique et si il est bien executé via notre site web et pas via une autre source. -->
                     <?php wp_nonce_field('send-mail'); ?>
+                    <input type="hidden" name="action" value="send-mail">
 
                     <div class="row">
                         <div class="col-sm-6">
