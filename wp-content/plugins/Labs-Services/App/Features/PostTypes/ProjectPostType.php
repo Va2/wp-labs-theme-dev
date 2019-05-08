@@ -40,7 +40,7 @@ class ProjectPostType
                 'rewrite' => [
                     'slug' => 'project',
                 ],
-                'capabilities' => array(
+                'capabilities' => [
                     'edit_post' => 'edit_project',
                     'edit_posts' => 'edit_projects',
                     'edit_others_posts' => 'edit_other_projects',
@@ -48,7 +48,9 @@ class ProjectPostType
                     'read_post' => 'read_project',
                     'read_private_posts' => 'read_private_projects',
                     'delete_post' => 'delete_project',
-                ),
+                    'delete_posts' => 'delete_projects'
+                ],
+                // 'map_meta_cap' => true,
                 'menu_icon' => 'dashicons-clipboard',
                 'supports' => ['title', 'editor', 'thumbnail'],
             ]

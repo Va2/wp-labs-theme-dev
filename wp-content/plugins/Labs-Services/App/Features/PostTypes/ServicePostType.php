@@ -39,8 +39,7 @@ class ServicePostType
                 'rewrite' => [
                     'slug' => 'service',
                 ],
-
-                'capabilities' => array(
+                'capabilities' => [
                     'edit_post' => 'edit_service',
                     'edit_posts' => 'edit_services',
                     'edit_others_posts' => 'edit_other_services',
@@ -48,8 +47,9 @@ class ServicePostType
                     'read_post' => 'read_service',
                     'read_private_posts' => 'read_private_services',
                     'delete_post' => 'delete_service',
-                ),
-
+                    'delete_posts' => 'delete_services'
+                ],
+                // 'map_meta_cap' => true,
                 'taxonomies' => ['category'],
                 'menu_icon' => 'dashicons-analytics',
                 'supports' => ['title', 'editor', 'thumbnail'],

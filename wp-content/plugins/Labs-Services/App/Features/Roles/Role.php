@@ -19,7 +19,6 @@ class Role
                 'edit_published_posts' => true,
                 'publish_posts' => true,
                 'upload_files' => true,
-
                 'delete_posts' => true,
                 'delete_published_posts' => true,
             ]

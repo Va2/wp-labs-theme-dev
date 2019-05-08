@@ -41,7 +41,7 @@ class TestimonialPostType
                 'rewrite' => [
                     'slug' => 'testimonial',
                 ],
-                'capabilities' => array(
+                'capabilities' => [
                     'edit_post' => 'edit_testimonial',
                     'edit_posts' => 'edit_testimonials',
                     'edit_others_posts' => 'edit_other_testimonials',
@@ -49,7 +49,9 @@ class TestimonialPostType
                     'read_post' => 'read_testimonial',
                     'read_private_posts' => 'read_private_testimonials',
                     'delete_post' => 'delete_testimonial',
-                ),
+                    'delete_posts' => 'delete_testimonials'
+                ],
+                // 'map_meta_cap' => true,
                 'menu_icon' => 'dashicons-money',
                 'supports' => ['title', 'editor', 'thumbnail'],
             ],
