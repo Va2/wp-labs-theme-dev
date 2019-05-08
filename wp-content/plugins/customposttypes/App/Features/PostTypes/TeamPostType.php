@@ -1,7 +1,9 @@
 <?php
 namespace App\Features\PostTypes;
+
 add_theme_support('post-thumbnails'); // Check placement
- class TeamPostType
+
+class TeamPostType
 {
     // On créer une variable qu'on appel 'slug' on la rend public et static pour pouvoir s'en servir dans les functions de la class RecipePostType et en dehors.
     public static $slug = 'team';

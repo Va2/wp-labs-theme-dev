@@ -29,6 +29,10 @@ $testimonials_title = get_theme_mod('home-testimonials-title', __('Titre Testimo
                             <span>‘​‌‘​‌</span>
                             <p><?php the_content(); ?></p>
                             <div class="client-info">
+                                <div class="avatar">
+                                    <img src="<?php the_post_thumbnail_url();?>" alt="">
+                                </div>
+                                
                                 <div class="client-name">
                                     <h2><?php the_title(); ?></h2>
                                     <p><?= get_post_meta(get_the_ID(), 'job_position', true) ?></p>
