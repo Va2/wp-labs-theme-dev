@@ -1,5 +1,5 @@
 <!-- services card section-->
-<div class="services-card-section spad">
+<div id="product-card" class="services-card-section spad">
     <div class="container">
         <div class="row">
             <?php

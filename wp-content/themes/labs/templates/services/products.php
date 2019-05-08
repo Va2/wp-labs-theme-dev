@@ -81,7 +81,7 @@ $products_title = str_replace("]", "</span>", $products_title);
 
         </div>
         <div class="text-center mt100">
-            <a href="/?page_id=<?= get_page_by_title('contact')->ID ?>" class="site-btn">Contact</a>
+            <a href="#product-card" class="site-btn">Scroll down</a>
         </div>
     </div>
 </div>
