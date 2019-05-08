@@ -48,9 +48,7 @@ class TeamPostType
                     'read_post' => 'read_team',
                     'read_private_posts' => 'read_private_teams',
                     'delete_post' => 'delete_team',
-                    'delete_posts' => 'delete_teams'
                 ],
-                // 'map_meta_cap' => true,
                 'taxonomies' => ['category'],
                 'menu_icon' => 'dashicons-groups',
                 'supports' => ['title', 'editor', 'thumbnail'],

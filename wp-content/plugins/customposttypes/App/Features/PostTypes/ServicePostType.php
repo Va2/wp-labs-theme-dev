@@ -53,6 +53,7 @@ class ServicePostType
                     'title',
                     'editor'
                 ],
+                'exclude_from_search' => true
             ]
         );
     }

@@ -56,6 +56,7 @@ class TestimonialPostType
                     'editor',
                     'thumbnail'
                 ],
+                'exclude_from_search' => true
             ],
             add_filter('enter_title_here', function ($title) {
                 $screen = get_current_screen();

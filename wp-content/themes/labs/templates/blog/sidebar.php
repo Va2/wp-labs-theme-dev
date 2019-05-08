@@ -46,11 +46,9 @@
                             <ul class="tag">
                                 <?php
                                 foreach ($tags as $tag) :
-                                    // $count++;
 
                                     echo '<li><a href="' . get_tag_link( $tag->term_id ) . '" title="' . sprintf( __( "" ), $tag->name ) . '" ' . '>' . $tag->name.'</a></li>';
 
-                                    // if( $count > 9 ) break;
                                 endforeach;
                                 ?>
                             </ul>

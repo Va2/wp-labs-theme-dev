@@ -57,6 +57,7 @@ class ProductPostType
                     'editor',
                     'thumbnail'
                 ],
+                'exclude_from_search' => true
             ]
         );
     }

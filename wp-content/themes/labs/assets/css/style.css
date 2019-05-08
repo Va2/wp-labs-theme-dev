@@ -1487,7 +1487,7 @@ ul {
 }
 .mapouter .gmap_canvas #gmap_canvas {
 	width: 100%;
-	height: 80%;
+	height: 600px;
 }
 
 
