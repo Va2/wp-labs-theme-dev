@@ -25,7 +25,6 @@ use App\Features\Pages\SendNewsletter;
 use App\Setup;
 use App\Capabilities;
 
-
 // DATABASE
 use App\Database\Database;
 
@@ -54,9 +53,9 @@ add_action('save_post_' . ProductPostType::$slug, [ProductIconsMetabox::class, '
 
 add_action('admin_menu',[Page::class,'init']); 
 // SEND MAIL
-add_action('admin_action_send-mail', [MailController::class, 'send_mail']);
+add_action('admin_post_send-mail', [MailController::class, 'send_mail']);
 // SEND NEWSLETTER
-add_action('admin_action_send-newsletter', [MailController::class, 'send_newsletter']);
+add_action('admin_post_send-newsletter', [MailController::class, 'send_newsletter']);
 
 // APP SETUP
 add_action('init', [Setup::class, 'start_session']);
