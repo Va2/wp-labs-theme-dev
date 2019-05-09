@@ -1132,16 +1132,17 @@ ul {
 	border-radius: 10px;
 }
 
-.page-pagination a {
+.page-numbers {
 	display: inline-block;
-	font-family: "Oswald", sans-serif;
+	font-family: "Oswald",
+	sans-serif;
 	font-size: 16px;
 	color: #0b1033;
 	padding: 6px 10px;
 	margin-right: 5px;
 }
 
-.page-pagination a.active {
+.current {
 	background: #2be6ab;
 }
 
@@ -1485,9 +1486,14 @@ ul {
 	font-size: 16px;
 	font-weight: 500;
 }
+
 .mapouter .gmap_canvas #gmap_canvas {
 	width: 100%;
 	height: 600px;
+}
+
+a.prev.page-numbers, a.next.page-numbers {
+	display: none !important;
 }
 
 
