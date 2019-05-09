@@ -37,7 +37,16 @@
                     <ul class="tag">
                         <?php
                         $args = [
-                            'number' => 9
+                            'number' => 9,
+                            'slug' => [
+                                'branding',
+                                'design',
+                                'identity',
+                                'inspiration',
+                                'photography',
+                                'video',
+                                'web design'
+                            ]
                         ];
                         $tags = $tags_array = get_tags( $args );
 
