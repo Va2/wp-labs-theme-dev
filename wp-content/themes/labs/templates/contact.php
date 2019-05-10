@@ -40,6 +40,7 @@ $contact_address_email = get_theme_mod('home-contact-address-email', __('hello@c
                     <div class="row">
                         <div class="col-sm-6">
                             <input type="text" name="name" placeholder="Your name">
+                            <!-- <input type="text" name="name" placeholder="Your name" value="<?php // echo isset($_SESSION['old']) ? $_SESSION['old']['name'] : '' ?>"> -->
                         </div>
                         <div class="col-sm-6">
                             <input type="text" name="email" placeholder="Your email">
