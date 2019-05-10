@@ -1,3 +1,7 @@
+<?php
+$logo_nav = get_theme_mod('home-nav-logo');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +39,7 @@
     <!-- Header section -->
     <header class="header-section">
         <div class="logo">
-            <img src="<?= get_template_directory_uri(); ?>/assets/img/logo.png" alt=""><!-- Logo -->
+            <img src="<?= $logo_nav ?>" alt=""><!-- Logo -->
         </div>
 
         <!-- Navigation -->

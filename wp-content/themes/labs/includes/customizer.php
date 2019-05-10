@@ -26,6 +26,41 @@ class LabsCustomizer
             'description' => __('Changer les titres & textes de la page services.')
         ]);
 
+        // Logo
+        $wp_customize->add_section('labs-home-logo', [
+            'title' => __('Logo\'s'),
+        ]);
+        $wp_customize->add_setting('home-nav-logo', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_text_field'
+        ]);
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'nav-logo-control', // = $slug control
+                array(
+                    'label'      => __( 'Logo navigation', 'theme_name' ),
+                    'section'    => 'labs-home-logo',
+                    'settings'   => 'home-nav-logo'
+                )
+            )
+        );
+        $wp_customize->add_setting('home-carousel-logo', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_text_field'
+        ]);
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'carousel-logo-control', // = $slug control
+                array(
+                    'label'      => __( 'Logo carousel', 'theme_name' ),
+                    'section'    => 'labs-home-logo',
+                    'settings'   => 'home-carousel-logo'
+                )
+            )
+        );
+
         // Carousel
         $wp_customize->add_section('labs-home-carousel', [
             'title' => __('Carousel: images'),
