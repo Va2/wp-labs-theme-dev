@@ -45,7 +45,7 @@
                                         endif;
                                         ?>
                                     </a>
-                                    <a href=""><?php comments_number(); ?></a>
+                                    <a href=""><?= get_comments_number() >= 1 ? get_comments_number() . ' comments' : get_comments_number() . ' comment' ?></a>
                                 </div>
                                 <p><?php the_excerpt(); ?></p>
                                 <a href="<?php the_permalink() ?>" class="read-more">Read More</a>

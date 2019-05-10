@@ -45,11 +45,14 @@
                     </div>
                     
                     <!-- Post Comments -->
+                    <?php
+                    $postId = 'post_id=' . get_the_ID();
+                    $comments = get_comments($postId);
+                    ?>
                     <div class="comments">
-                        <h2><?php comments_number(); ?></h2>
+                        <h2><?= get_comments_number(); ?> commentaires</h2>
                         <ul class="comment-list">
                             <?php
-                            $comments = get_comments();
                             foreach($comments as $comment) :
                             ?>
                                 <li>
@@ -57,7 +60,7 @@
                                         <img src="<?= get_template_directory_uri() ?>/assets/img/avatar/01.jpg" alt="">
                                     </div> -->
                                     <div class="commetn-text">
-                                        <h3><?= $comment->comment_author ?> | <?php comment_date('d M, Y') ?> | Reply</h3>
+                                        <h3><?= $comment->comment_author ?> | <?= $comment->comment_date ?> | Reply</h3>
                                         <p><?= $comment->comment_content ?></p>
                                     </div>
                                 </li>
@@ -65,11 +68,16 @@
                         </ul>
                     </div>
 
-                    <!-- Commert Form -->
+                    <!-- Comment Form -->
                     <?php
-                    if (comments_open()) :
-                        comments_template();
+                    if (comments_open() || get_comments_number()) :
+                        comments_template('/templates/blog/comment-form.php');
                     endif;
+                    ?>
+                    <?php
+                    // if (comments_open()) :
+                    //     comments_template();
+                    // endif;
                     ?>
                 </div>
             </div>
